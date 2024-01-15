@@ -13,27 +13,24 @@ public class PolishNotation {
                 stack.add(Integer.parseInt(s));
 //                System.out.println("sr:" + stack);
             } else {
-                int sum = 0;
                 int x = stack.pop();
                 int y = stack.pop();
-                System.out.println("x:" + x + " y: " + y);
                 switch (s) {
                     case "+":
-                        sum = x + y;
+                        stack.add(x + y);
                         break;
                     case "-":
-                        sum = x - y;
+                        stack.add(x - y);
                         break;
                     case "/":
-                        sum = x / y;
+                        stack.add(x / y);
                         break;
                     case "*":
-                        sum = x * y;
+                        stack.add(x * y);
                         break;
                     default:
                         throw new IllegalArgumentException("Unsupported operator: " + s);
                 }
-                stack.add(sum);
             }
         }
         System.out.println(stack.peek());
